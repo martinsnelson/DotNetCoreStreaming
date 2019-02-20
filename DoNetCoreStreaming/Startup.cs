@@ -33,16 +33,38 @@ namespace DoNetCoreStreaming
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            /// Default Https
+            //app.UseHttpsRedirection();
+
+            /// Default
             app.UseMvc();
 
             //Removido para teste
-
+            //  Default
             //app.Run(async (context) =>
             //{
             //    await context.Response.WriteAsync("Hello World!");
             //});
 
+
+            /// Autenticação com Cookie e autorização
+            /*
+            app.UseCookieAuthentication(options =>
+            {
+                options.AuthenticationScheme = "Cookie";
+                options.LoginPath = new PathString("/Conta/NaoAutorizado/");
+                options.AccessDeniedPath = new PathString("/Conta/Proibido/");
+                options.AutomaticAuthenticate = true;
+                options.AutomaticChallenge = true;
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+            */
         }
     }
 }
