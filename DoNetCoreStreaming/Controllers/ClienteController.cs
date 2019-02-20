@@ -70,6 +70,22 @@ namespace DoNetCoreStreaming.Controllers
         }
 
         /// <Author>Nelson Martins</Author>
+        /// <Date>20/02/2019</Date>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Cliente cliente)
+        {
+            EnviarEvento(cliente, EventoEnum.Delete);
+
+            return Ok();
+        }
+
+        /// <Author>Nelson Martins</Author>
         /// <Date>19/02/2019</Date>
         /// <summary>
         /// 
